@@ -55,36 +55,6 @@ export const constantRoutes = [
     }]
   },
 
-  {
-    path: '/sys',
-    component: Layout,
-    redirect: '/sys/student',
-    name: 'sysManage',
-    meta: { title: '系统管理', icon: 'sys' },
-    children: [
-      {
-        path: 'student',
-        name: 'student',
-        component: () => import('@/views/sys/student'),
-        meta: { title: '学生管理', icon: 'userManage' }
-      },
-      {
-        path: 'role',
-        name: 'role',
-        component: () => import('@/views/sys/role'),
-        meta: { title: '角色管理', icon: 'roleManage' }
-      },
-      {
-        path: 'findScore',
-        name: 'findScore',
-        component: () => import('@/views/sys/findScore'),
-        meta: { title: '成绩查询', icon: 'findScore' }
-      }
-
-    ]
-  },
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({

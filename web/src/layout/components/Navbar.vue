@@ -46,7 +46,10 @@ export default {
     },
     async logout() {
       await this.$store.dispatch("user/logout");
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`);
+      // 注销时删除所有tagview
+      await this.$store.dispatch("tagsView/delAllViews");
+      sessionStorage.removeItem("tabViews");
+      this.$router.push(`/login`);
     },
   },
 };

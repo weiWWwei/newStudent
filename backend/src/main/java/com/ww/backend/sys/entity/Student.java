@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ww
@@ -38,6 +38,16 @@ public class Student implements Serializable {
     private Integer biology;
 
     private Integer chemistry;
+
+    private Integer score;
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 
     public Integer getId() {
         return id;
