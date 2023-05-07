@@ -21,6 +21,18 @@ export default {
             }
         })
     },
+    filterStudentList(searchModel) {
+        return request({
+            url: '/student/filter',
+            method: 'get',
+            params: {
+                pageNo: searchModel.pageNo,
+                pageSize: searchModel.pageSize,
+                number: searchModel.number,
+                uid: searchModel.uid
+            }
+        })
+    },
     getStudent(searchModel) {
         return request({
             url: '/student/get',

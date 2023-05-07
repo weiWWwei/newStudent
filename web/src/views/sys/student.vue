@@ -28,6 +28,13 @@
           >
             导出
           </el-button>
+          <el-button
+            @click="filterStudentList"
+            type="primary"
+            round
+            icon="el-icon-refresh-right"
+            >筛选</el-button
+          >
         </el-col>
         <el-col :span="4" align="right">
           <el-button
@@ -265,6 +272,12 @@ export default {
     handleCurrentChange(pageNo) {
       this.searchModel.pageNo = pageNo;
       this.getStudentList();
+    },
+    filterStudentList() {
+      studentApi.filterStudentList(this.searchModel).then((response) => {
+        this.studentList = response.data.rows;
+        this.total = response.data.total;
+      });
     },
     getStudentList() {
       studentApi.getStudentList(this.searchModel).then((response) => {
